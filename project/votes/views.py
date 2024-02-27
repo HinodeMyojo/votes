@@ -1,5 +1,5 @@
 from django.views.generic import ListView
 
 
-class VotesListView(ListView):
+class ListPolls(ListView):
     template_name = "list.html"

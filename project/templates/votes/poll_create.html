@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Создать{% endblock title %}
+{% block content %}
+    <main>
+        <form method='POST'>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div id="search_box-result"></div>.
+            <input type="submit" value=Save>
+        </form>
+    </main>
+{% endblock content %}

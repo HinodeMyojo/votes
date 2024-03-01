@@ -1,0 +1,17 @@
+{% load static %}
+<header>
+    <nav>
+        <div class="nav-m">
+            <a href="{% url "votes:list_polls" %}">Главная</a>
+            <a href="{% url "votes:list_polls" %}">Списки</a>
+            {% if user.is_authenticated %}
+                <a href="{% url "votes:create_polls" %}">Создать</a>
+                <a href="">Профиль</a>
+                <a href="{% url "logout" %}">Выйти</a>
+            {% else %}
+                <a href="{% url "" %}">Регистрация</a>
+                <a href="{% url "login" %}">Вход</a>
+            {% endif %}
+        </div>
+    </nav>
+</header>

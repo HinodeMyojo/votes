@@ -27,12 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-CITIES_FILES = {
-    'city':  {
-        'filename':  'RU.zip',
-        'urls':      ['http://download.geonames.org/export/dump/' + '{filename}']
-    },
-}
 
 # Application definition
 
@@ -43,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cities',
+    'cities_light',
     'django.contrib.gis',
     'votes',
 
@@ -144,5 +138,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 GDAL_LIBRARY_PATH = r'C:\OSGeo4W\bin\gdal308.dll'
 GEOS_LIBRARY_PATH = r'C:\OSGeo4W\bin\geos_c.dll'
 
-#django-cities
-LOCAL_CITIES = ['ru']
+#django-cities-light
+CITIES_LIGHT_TRANSLATION_LANGUAGES = ['ru']
+CITIES_LIGHT_INCLUDE_COUNTRIES = ['RU']

@@ -1,9 +1,6 @@
 import uuid
 from django.contrib.auth import get_user_model
 from django.db import models
-from cities.models import Region, City, Country
-# from django.utils.translation import gettext_lazy as _
-
 
 User = get_user_model()
 
@@ -107,14 +104,14 @@ class Poll(models.Model):
         "Category",
         verbose_name="Категория",
     )
-    city = models.ForeignKey(
-        City,
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        verbose_name='Город',
-        related_name='user_profiles'
-    )
+    # city = models.ForeignKey(
+    #     City,
+    #     on_delete=models.SET_NULL,
+    #     null=True,
+    #     blank=True,
+    #     verbose_name='Город',
+    #     related_name='user_profiles'
+    # )
     status = models.CharField(
         max_length=2,
         choices=POLL_STATUSES,

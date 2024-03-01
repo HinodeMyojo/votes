@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Список{% endblock title %}
+{% block content %}
+    <main>
+        {{ object.id }}
+        {{ object.headline }}
+        {{ object.essence }}
+        {{ object.text }}
+        {{ object.image }}
+        {{ object.author }}
+        {{ object.mode }}
+        {{ object.type }}
+        {{ object.category }}
+        {{ object.city }}
+        {{ object.status }}
+    </main>
+{% endblock content %}

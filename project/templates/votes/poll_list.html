@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Список{% endblock title %}
+{% block content %}
+    <main>
+        {% for items in object_list %}
+            {{ items.text }}
+            <a href="{% url "votes:detail_polls" items.id %}">
+                <p>Детально</p>
+            </a>
+        {% endfor %}
+    </main>
+{% endblock content %}

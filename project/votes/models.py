@@ -1,7 +1,7 @@
 import uuid
 from django.contrib.auth import get_user_model
 from django.db import models
-from cities.models import Region, City
+from cities.models import Region, City, Country
 # from django.utils.translation import gettext_lazy as _
 
 
@@ -70,36 +70,42 @@ class Poll(models.Model):
     ]
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    headline = models.CharField(max_length=200)
-    essence = models.CharField(max_length=400)
-    text = models.TextField(max_length=3000)
-    image = models.ImageField(upload_to='image/')
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    headline = models.CharField(
+        max_length=200, 
+        verbose_name="Заголовок"
+    )
+    essence = models.TextField(
+        max_length=400,
+        verbose_name="Краткое описание"
+    )
+    text = models.TextField(
+        max_length=3000,
+        verbose_name="Текст"
+    )
+    image = models.ImageField(
+        upload_to='image/',
+        verbose_name="Изображение"
+    )
+    author = models.ForeignKey(
+        User, 
+        on_delete=models.CASCADE,
+        verbose_name="Автор"
+    )
     mode = models.CharField(
         max_length=1,
         choices=POLL_MODES,
-        default=SINGLE
+        default=SINGLE,
+        verbose_name="Режим голосования"
     )
     type = models.CharField(
         max_length=2,
         choices=POLL_TYPES,
-        default=OPEN
+        default=OPEN,
+        verbose_name="Тип голосования"
     )
     category = models.ManyToManyField(
         "Category",
-        verbose_name=("Категория")
-    )
-    all_russia = models.BooleanField(
-        default=False,
-        verbose_name='Вся Россия'
-    )
-    region = models.ForeignKey(
-        Region,
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        verbose_name='Область/Регион',
-        related_name='user_profiles'
+        verbose_name="Категория",
     )
     city = models.ForeignKey(
         City,
@@ -112,7 +118,8 @@ class Poll(models.Model):
     status = models.CharField(
         max_length=2,
         choices=POLL_STATUSES,
-        default=UNDER_REVIEW
+        default=UNDER_REVIEW,
+        verbose_name="Статус"
     )
 
     def __str__(self):

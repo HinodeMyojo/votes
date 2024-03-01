@@ -27,6 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CITIES_FILES = {
+    'city':  {
+        'filename':  'RU.zip',
+        'urls':      ['http://download.geonames.org/export/dump/' + '{filename}']
+    },
+}
 
 # Application definition
 
@@ -55,10 +61,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'project.urls'
 
+TEMPLATES_DIR = BASE_DIR / 'templates'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,14 +86,14 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-   'default': {
-       'ENGINE': 'django.contrib.gis.db.backends.postgis',
-       'NAME': "votes",
-       'USER': 'postgres',
-       'PASSWORD': 'admin',
-       'HOST': 'localhost',
-       'PORT': '5432',
-   }
+    'default': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': "votes",
+        'USER': 'postgres',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
 
 # Password validation
@@ -123,6 +131,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+# STATICFILES_DIRS = [
+#     BASE_DIR/'static/'
+# ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

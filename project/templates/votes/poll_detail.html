@@ -3,16 +3,17 @@
 {% block title %}Список{% endblock title %}
 {% block content %}
     <main>
-        {{ object.id }}
-        {{ object.headline }}
-        {{ object.essence }}
-        {{ object.text }}
-        {{ object.image }}
-        {{ object.author }}
-        {{ object.mode }}
-        {{ object.type }}
-        {{ object.category }}
-        {{ object.city }}
-        {{ object.status }}
+        {{ poll.id }}
+        {{ poll.headline }}
+        {{ poll.essence }}
+        {{ poll.text }}
+        {{ poll.image }}
+        {{ poll.author }}
+        {{ poll.mode }}
+        {{ poll.type }}
+        {{ poll.category }}
+        {{ poll.city }}
+        {{ poll.status }}
+        {{ poll.vote_options}}
     </main>
 {% endblock content %}

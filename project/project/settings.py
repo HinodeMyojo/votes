@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cities_light',
     'django.contrib.gis',
     'votes',
 
@@ -81,7 +80,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': "votes",
         'USER': 'postgres',
         'PASSWORD': 'admin',
@@ -139,5 +138,5 @@ GDAL_LIBRARY_PATH = r'C:\OSGeo4W\bin\gdal308.dll'
 GEOS_LIBRARY_PATH = r'C:\OSGeo4W\bin\geos_c.dll'
 
 #django-cities-light
-CITIES_LIGHT_TRANSLATION_LANGUAGES = ['ru']
-CITIES_LIGHT_INCLUDE_COUNTRIES = ['RU']
+# CITIES_LIGHT_TRANSLATION_LANGUAGES = ['ru']
+# CITIES_LIGHT_INCLUDE_COUNTRIES = ['RU']

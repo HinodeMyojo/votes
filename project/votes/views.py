@@ -1,4 +1,3 @@
-from typing import Any
 from django.http import HttpRequest, HttpResponse
 from django.views.generic import ListView, CreateView, DetailView
 from votes.models import Poll
@@ -20,6 +19,7 @@ class PollCreateView(LoginRequiredMixin, CreateView):
         'mode',
         'type',
         'category',
+        'city',
         )
     template_name = 'votes/poll_create.html'
 

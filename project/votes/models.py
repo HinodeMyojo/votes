@@ -23,6 +23,9 @@ class Category(models.Model):
         unique=True
     )
 
+    def __str__(self):
+        return self.title
+
 
 class Vote(models.Model):
     option = models.ForeignKey(
@@ -37,6 +40,9 @@ class Vote(models.Model):
 class VoteOption(models.Model):
     poll = models.ForeignKey("Poll", on_delete=models.CASCADE)
     option_text = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.option_text
 
 
 class Poll(models.Model):
@@ -68,7 +74,7 @@ class Poll(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     headline = models.CharField(
-        max_length=200, 
+        max_length=200,
         verbose_name="Заголовок"
     )
     essence = models.TextField(
@@ -84,7 +90,7 @@ class Poll(models.Model):
         verbose_name="Изображение"
     )
     author = models.ForeignKey(
-        User, 
+        User,
         on_delete=models.CASCADE,
         verbose_name="Автор"
     )
@@ -104,14 +110,9 @@ class Poll(models.Model):
         "Category",
         verbose_name="Категория",
     )
-    # city = models.ForeignKey(
-    #     City,
-    #     on_delete=models.SET_NULL,
-    #     null=True,
-    #     blank=True,
-    #     verbose_name='Город',
-    #     related_name='user_profiles'
-    # )
+    city = models.CharField(
+        default="Вся Россия"
+    )
     status = models.CharField(
         max_length=2,
         choices=POLL_STATUSES,
